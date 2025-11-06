@@ -57,8 +57,8 @@ for c in contours:
 ## 🧾 Run the App
 
 ```bash
-pip install -r requirements.txt
-uvicorn main:app --reload
+python -m pip install -r requirements.txt
+python -m uvicorn main:app --reload
 ```
 
 Then open 👉 [http://127.0.0.1:8000](http://127.0.0.1:8000)
