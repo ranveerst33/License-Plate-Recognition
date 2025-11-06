@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>License Plate Detection</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+
+<body class="bg-neutral-950 text-neutral-200 min-h-screen font-sans">
+  <header class="max-w-6xl mx-auto px-4 pt-10 pb-6">
+    <h1 class="text-3xl md:text-4xl font-semibold tracking-tight text-white">
+      License Plate Detection
+    </h1>
+    <p class="text-neutral-400 mt-2">Traditional Computer Vision (OpenCV) — No ML/AI</p>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 pb-16">
+    <!-- Mode selector -->
+    <section class="bg-neutral-900/70 border border-neutral-800 rounded-xl p-5 mb-6">
+      <div class="flex flex-wrap gap-3">
+        <button id="btnSingle" class="mode-btn-active">Single Plate</button>
+        <button id="btnMulti" class="mode-btn">Multi-Plate (one image)</button>
+      </div>
+      <p class="text-sm text-neutral-400 mt-3">
+        Single mode requires exactly one plate. If multiple are found, switch to Multi-Plate.
+      </p>
+    </section>
+
+    <!-- Upload section -->
+    <section id="uploadSection" class="bg-neutral-900/70 border border-neutral-800 rounded-xl p-6 mb-6">
+      <form id="uploadForm" class="grid gap-4 md:grid-cols-[1fr_auto] items-end">
+        <div>
+          <label class="block text-sm text-neutral-400 mb-1" for="fileInput">Select image</label>
+          <div class="flex items-center gap-3">
+            <input id="fileInput" type="file" accept="image/*" class="hidden" />
+            <label id="fileLabel" for="fileInput"
+              class="inline-flex items-center justify-center h-11 px-4 rounded-md border border-neutral-700 bg-neutral-800 text-neutral-200 hover:bg-neutral-700 transition">
+              Choose image
+            </label>
+            <span id="fileName" class="text-sm text-neutral-400">No file selected</span>
+          </div>
+          <img id="preview" class="mt-4 max-h-56 rounded-lg border border-neutral-800 hidden" alt="preview">
+        </div>
+        <button type="submit" id="btnProcess" class="btn-primary h-11">Process</button>
+      </form>
+      <p id="hintMode" class="text-xs text-neutral-500 mt-3"></p>
+      <p id="errorMsg" class="text-red-400 mt-3"></p>
+    </section>
+
+    <!-- Results container -->
+    <section id="resultContainer" class="hidden">
+      <div id="reportContent">
+        <div id="dashboard" class="panel mb-6"></div>
+        <div id="steps" class="grid gap-6"></div>
+        <div id="teamBlock" class="panel mt-6"></div>
+      </div>
+
+      <div class="mt-8 flex gap-4">
+        <button id="btnPDF" class="btn-secondary">📄 Download PDF Report</button>
+      </div>
+    </section>
+
+   <!-- Analytics Section -->
+<section id="analyticsSection" class="hidden mt-10 max-w-6xl mx-auto px-4">
+  <div class="flex justify-between items-center mb-4">
+    <h2 class="text-2xl font-semibold text-white">📊 Pipeline Analytics</h2>
+    <div class="flex gap-3">
+      <button id="btnClearGraphs" class="btn-secondary">🧹 Clear Graphs</button>
+      <button id="btnCloseGraphs" class="btn-secondary">Close Graphs</button>
+    </div>
+  </div>
+
+  <div class="grid gap-8">
+    <!-- Graph 1 -->
+    <div class="panel">
+      <h3 class="text-lg text-sky-400 font-semibold mb-2">1. Step Time Breakdown</h3>
+      <canvas id="chartSteps" height="120"></canvas>
+      <p class="text-sm text-neutral-400 mt-2">
+        Time taken per image processing step (milliseconds).
+      </p>
+    </div>
+
+    <!-- Graph 2 -->
+    <div class="panel">
+      <h3 class="text-lg text-sky-400 font-semibold mb-2">2. Contour Count Distribution</h3>
+      <canvas id="chartContours" height="120"></canvas>
+      <p class="text-sm text-neutral-400 mt-2">
+        Comparison of total contours, candidate contours, and detected plates.
+      </p>
+    </div>
+  </div>
+</section>
+
+  </main>
+
+  <script src="/static/js/app.js"></script>
+  <script src="/static/js/pdf.js"></script>
+</body>
+</html>

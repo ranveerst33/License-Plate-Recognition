@@ -1,0 +1,31 @@
+:root { --primary: #0284c7; }
+.btn-primary {
+  background: var(--primary); color: #fff; font-weight: 600;
+  padding: 0.75rem 1rem; border-radius: 0.5rem; transition: .2s ease;
+}
+.btn-primary:hover { filter: brightness(1.1); }
+.btn-secondary {
+  background: #1f2937; color: #e5e7eb; font-weight: 600;
+  padding: 0.75rem 1rem; border: 1px solid #374151; border-radius: 0.5rem; transition: .2s ease;
+}
+.btn-secondary:hover { background: #2b3544; }
+
+.mode-btn, .mode-btn-active {
+  font-weight: 600; padding: 0.6rem 1.2rem; border-radius: 0.4rem; border: 1px solid #374151;
+}
+.mode-btn { background:#1f2937; color:#e5e7eb; }
+.mode-btn:hover { background:#2b3544; }
+.mode-btn-active { background: var(--primary); color:#fff; border-color: var(--primary); }
+
+.panel, .step-card {
+  background: rgba(24,24,27,0.9); border: 1px solid #2b2b2f; border-radius: 0.75rem; padding: 1rem;
+}
+.kv {
+  display: grid; grid-template-columns: 200px 1fr; gap: .25rem .75rem; font-size: .95rem;
+}
+.kv div:nth-child(odd){ color:#9ca3af; }
+.kv div:nth-child(even){ color:#e5e7eb; }
+
+#analyticsSection {
+  background: rgba(24,24,27,0.9); border: 1px solid #2b2b2f; border-radius: 0.75rem; padding: 1.5rem;
+}
