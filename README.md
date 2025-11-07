@@ -73,8 +73,10 @@ This project demonstrates that **traditional computer vision techniques** are po
 
 ### ✨ Author
 
-**Ranveer Singh Thakur**
-📧 ranveersingh.thakur174@nmims.edu.in
+```
+
+✒️ Ranveer Singh Thakur
+📧 ranveerst33@gmail.com
 🛠️ Developed in 2025 using Python, OpenCV, and FastAPI.
 
 ```
