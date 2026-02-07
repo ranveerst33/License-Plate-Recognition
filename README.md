@@ -4,7 +4,7 @@
 ---
 
 ## 🧩 Overview
-A full-stack web app that detects and highlights **license plates from vehicle images** using **classical image processing techniques** — built purely on logic without any AI or ML models.  
+A full-stack web app that detects and highlights **license plates from vehicle images** using **classical image processing techniques** built purely on logic without any AI or ML models.  
 Developed using **FastAPI** for the backend and **OpenCV + NumPy** for computer vision, the system visualizes each step of the pipeline, provides performance analytics, and generates a detailed PDF report.
 
 ---
